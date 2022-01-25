@@ -13,14 +13,9 @@ public class CallSceneLoader : MonoBehaviour
     {
         if (unloadCurrentScene)
         {
-            CallUnloader(gameObject.scene);
+            SceneManager.UnloadSceneAsync(gameObject.scene);
         }
 
         SceneLoader.instance.LoadScene(sceneToLoad, showLoadingScreen);
-    }
-
-    public void CallUnloader(Scene unload)
-    {
-        SceneLoader.instance.UnloadScene(unload);
     }
 }

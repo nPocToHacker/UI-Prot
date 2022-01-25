@@ -9,12 +9,9 @@ public class SceneLoader : MonoBehaviour
     public GameObject loadingScreen;
     public string defaultSceneName;
 
-
-
     private void Awake()
     {
         instance = this;
-        loadingScreen.gameObject.SetActive(true);
 
         LoadScene(defaultSceneName, true);
     }
@@ -42,11 +39,5 @@ public class SceneLoader : MonoBehaviour
         }
 
         loadingScreen.gameObject.SetActive(false);
-    }
-
-
-    public void UnloadScene(Scene sceneToUnload)
-    {
-        SceneManager.UnloadSceneAsync(sceneToUnload, UnloadSceneOptions.UnloadAllEmbeddedSceneObjects);
     }
 }
