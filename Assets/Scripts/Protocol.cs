@@ -19,10 +19,10 @@ public class Protocol : MonoBehaviour
         audioMixer.SetFloat("MusicVolume", -80f);
         audioMixer.SetFloat("SoundVolume", -80f);
         turnOff.SetActive(false);
-        StartCoroutine(WaitTime(5f));
+        StartCoroutine(WaitFor(5f));
     }
 
-    IEnumerator WaitTime(float time)
+    IEnumerator WaitFor(float time)
     {
         yield return new WaitForSeconds(time);
 
@@ -30,6 +30,6 @@ public class Protocol : MonoBehaviour
         audioMixer.SetFloat("SoundVolume", soundVolume);
 
         SceneLoader.instance.LoadScene("MainMenu");
-        SceneLoader.instance.UnloadScene(SceneManager.GetSceneByName("Shop"));
+        SceneManager.UnloadSceneAsync(gameObject.scene);
     }
 }
